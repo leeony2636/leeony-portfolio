@@ -1,0 +1,8 @@
+{
+  "name": "Remix 하주성 | AI Service Planner \u0026 Builder Portfolio",
+  "description": "하주성의 AI 서비스 기획 및 빌더 포트폴리오. 프로젝트, 연혁, 역량 증명 및 Gemini AI 챗봇 지원.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
