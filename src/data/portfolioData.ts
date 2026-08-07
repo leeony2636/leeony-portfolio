@@ -3,30 +3,31 @@ import { Project, TimelineItem, SkillCategory, SkillProofMetric } from '../types
 export const PERSONAL_INFO = {
   name: '하주성',
   englishName: 'Ha Ju-seong',
-  title: 'AI Service Planner & Builder',
-  subtitle: '현장 감각을 이제는 AI로 ! 변수 없는 AI같은 인재',
-  badge: '⚡ THE PRACTICAL BUILDER',
-  motto: '"책상 위의 완벽한 알고리즘보다 현장의 문제를 기어코 해결하는 정직한 실행력이 더 가치 있습니다."',
+  title: 'Python · AI 프로젝트 구현 및 기록',
+  subtitle: '현장 경험을 바탕으로 Python과 AI 프로젝트를 직접 구현하고 기록합니다.',
+  badge: '⚡ PROJECT & FIELD EXPERIENCE',
+  motto: '"배운 내용을 직접 구현하고 기록하며 하나씩 발전해 나가는 과정을 중요하게 생각합니다."',
   email: 'leeony@naver.com',
-  github: 'https://github.com/haju-seong-builder',
-  blog: 'https://velog.io/@haju-seong',
-  location: '대한민국 서울 (Seoul, S. Korea)',
-  availableFor: 'AI 서비스 기획, LLM 에이전트 구축, B2B AI 솔루션 기획 & 빌딩, 풀스택 MVP 제작',
+  github: 'https://github.com/leeony2636',
+  blog: '',
+  location: '대한민국 부산',
+  availableFor: 'Python · AI 프로젝트 구현 및 포트폴리오 기록',
+
   coreValues: [
     {
       icon: '⚡',
-      title: '부딪히면 해결해버리는 능력',
-      desc: '문제가 발생하면 피하지 않고 현장 및 코드 수준에서 원인을 즉각 파악하고 해결책을 찾아냅니다.',
+      title: '다양한 현장에서 쌓은 경험',
+      desc: '병원, 철강 가공, 특수용접 등 서로 다른 환경에서 업무를 수행하며 다양한 현장 경험을 쌓았습니다.',
     },
     {
-      icon: '💼',
-      title: '업종을 가리지 않는 다양한 경험',
-      desc: '다양한 산업 현장 실무 경험을 바탕으로, 비IT 현장 사용자의 니즈를 정확히 반영하는 기획을 합니다.',
+      icon: '💻',
+      title: '직접 구현하는 프로젝트',
+      desc: 'Python과 AI 학습 내용을 코드로 구현하고 Streamlit 웹 애플리케이션으로 연결하고 있습니다.',
     },
     {
-      icon: '🏅',
-      title: '성실과 실적으로 보답하는 인재',
-      desc: '말뿐인 기획에 그치지 않고 작동하는 AI 코드와 명확한 수치 성과(KPI)로 결과물을 증명합니다.',
+      icon: '📂',
+      title: '기록하고 개선하는 과정',
+      desc: 'GitHub와 웹 포트폴리오를 활용해 프로젝트 과정과 결과를 정리하고 지속적으로 개선하고 있습니다.',
     },
   ],
 };
@@ -36,249 +37,327 @@ export const PROJECTS: Project[] = [
     id: 'ai-music-final',
     title: 'ai-music-final',
     subTitle: 'AI 음악 장르 예측 웹 애플리케이션',
-    description: 'GTZAN 음악 데이터를 활용해 음악 장르를 분류하고 Streamlit에서 예측 결과를 확인할 수 있도록 구현한 프로젝트',
+    description:
+      'GTZAN 음악 데이터를 활용해 음악 장르를 분류하고 Streamlit에서 예측 결과를 확인할 수 있도록 구현한 프로젝트',
     fullDescription:
-      '음악 장르 분류 모델을 단계적으로 개선한 프로젝트입니다. 기본 머신러닝 모델부터 ResNet18 기반 스펙트로그램 분류까지 확장했으며, 최종적으로 SpecAugment를 적용해 검증 정확도 82.32%를 기록했습니다.',
+      '음악 장르 분류 모델을 단계적으로 개선한 프로젝트입니다. 기본 머신러닝 모델부터 ResNet18 기반 스펙트로그램 분류까지 확장했으며, SpecAugment를 적용한 모델에서 검증 정확도 82.32%를 기록했습니다.',
+
     category: 'AI / Deep Learning',
-    techStack: ['Python', 'PyTorch', 'ResNet18', 'Streamlit', 'Librosa', 'Scikit-learn'],
+
+    techStack: [
+      'Python',
+      'PyTorch',
+      'ResNet18',
+      'Streamlit',
+      'Librosa',
+      'Scikit-learn',
+    ],
+
     stars: 0,
     forks: 0,
+
     githubUrl: 'https://github.com/leeony2636/ai-music-final',
     liveUrl: '',
+
     metrics: [
       { label: 'Validation Accuracy', value: '82.32%' },
       { label: '분류 장르', value: '10 Genres' },
-      { label: '오디오 분할', value: '3 sec' }
+      { label: '오디오 분할', value: '3 sec' },
     ],
+
     keyFeatures: [
       'WAV 파일 업로드 기반 음악 장르 예측',
       'ResNet18 기반 Mel Spectrogram 이미지 분류',
       'SpecAugment 적용을 통한 모델 성능 개선',
       '예측 장르별 확률 시각화',
-      'Streamlit 기반 웹 인터페이스 구현'
+      'Streamlit 기반 웹 인터페이스 구현',
     ],
+
     architectureSummary:
       'WAV Upload → 3초 구간 분할 → Mel Spectrogram → ResNet18 → 장르 확률 평균 → Streamlit 결과 출력',
+
     fieldProblemSolved:
-      '음원 파일을 업로드하면 특징 추출과 모델 추론 과정을 거쳐 음악 장르와 확률을 웹에서 확인할 수 있도록 구현했습니다.',
-    featured: true
+      '음원 파일을 업로드하면 특징 추출과 모델 추론을 거쳐 음악 장르와 확률을 웹에서 확인할 수 있도록 구현했습니다.',
+
+    featured: true,
   },
-      {
+
+  {
     id: 'ml-mini-projects',
     title: 'ML Mini Projects',
     subTitle: '분류 · 회귀 모델 Streamlit 웹앱',
-    description: 'PyTorch로 구현한 분류·회귀 모델을 Streamlit 웹 애플리케이션으로 연결한 미니 프로젝트 모음',
+    description:
+      'PyTorch로 구현한 분류·회귀 모델을 Streamlit 웹 애플리케이션으로 연결한 미니 프로젝트 모음',
+
     fullDescription:
-      '분류와 회귀 문제를 각각 모델링하고 학습된 모델을 Streamlit 웹앱과 연결하여 실제 입력값에 대한 예측 결과를 확인할 수 있도록 구현한 미니 프로젝트입니다.',
+      '분류와 회귀 문제를 각각 모델링하고 학습된 모델을 Streamlit 웹앱과 연결하여 입력값에 따른 예측 결과를 확인할 수 있도록 구현한 미니 프로젝트입니다.',
+
     category: 'Learning & Practice',
-    techStack: ['Python', 'PyTorch', 'Streamlit'],
+
+    techStack: [
+      'Python',
+      'PyTorch',
+      'Streamlit',
+    ],
+
     stars: 0,
     forks: 0,
+
     githubUrl: 'https://github.com/leeony2636/Miniproject',
+
     metrics: [
-      { label: '구성', value: 'Classification + Regression' }
+      { label: '구성', value: 'Classification + Regression' },
     ],
+
     keyFeatures: [
       'PyTorch 기반 분류 모델 구현',
       'PyTorch 기반 회귀 모델 구현',
-      '학습된 모델 파일 저장 및 불러오기',
+      '학습된 모델 저장 및 불러오기',
       'Streamlit 웹 인터페이스 연결',
-      '사용자 입력에 따른 예측 결과 출력'
+      '사용자 입력에 따른 예측 결과 출력',
     ],
+
     architectureSummary:
       'User Input → Streamlit → Trained PyTorch Model → Prediction → Result Display',
+
     fieldProblemSolved:
-      '모델 학습 결과를 코드 내부에서만 확인하지 않고 웹 인터페이스와 연결하여 직접 입력하고 예측 결과를 확인할 수 있도록 구현했습니다.',
-    featured: false
+      '모델 학습 결과를 코드에서만 확인하지 않고 웹 인터페이스에 연결해 직접 입력하고 예측 결과를 확인할 수 있도록 구현했습니다.',
+
+    featured: false,
   },
 ];
 
 export const TIMELINE: TimelineItem[] = [
   {
-    period: '2025.01 ~ 현재',
-    role: 'AI Service Planner & Builder',
-    company: '독립 프랙티셔너 & 프로젝트 리드',
-    tag: 'AI 혁신 & 실행',
-    description: 'LLM(Gemini API 등)을 기반으로 한 현장 밀착형 AI 서비스 기획 및 프론트엔드/백엔드 MVP 직접 구축.',
+    period: '2026.06.23 ~ 현재',
+    role: 'AI · Deep Learning 교육 과정',
+    company: 'AI 교육 과정',
+    tag: 'AI 학습 · 프로젝트 구현',
+
+    description:
+      'Python, 머신러닝, 딥러닝, Streamlit, GitHub 등을 활용해 실습과 개인 프로젝트를 진행하고 있습니다.',
+
     achievements: [
-      '수작업 현장 지시서 자동화 AI 서비스 (ai-field-ops-agent) 기획 및 개발 ➔ 작업시간 85% 절감',
-      '실시간 VOC 감정분석 및 CS 추천 시스템 기획 ➔ 응대 대기시간 45% 단축',
-      'Gemini API 기반 멀티턴 에이전트 및 Structured Output 가드레일 설계 전문성 확보',
-      '아이디어 단계부터 48시간 내 작동하는 AI 프로토타입 전개 역량 보유'
+      'Python 기반 머신러닝·딥러닝 실습',
+      'PyTorch 기반 분류·회귀 모델 구현',
+      'Streamlit 기반 예측 웹 애플리케이션 제작',
+      'ResNet18 기반 음악 장르 분류 프로젝트 구현',
+      'GitHub를 활용한 프로젝트 기록',
+      'Vercel을 활용한 웹 포트폴리오 배포',
     ],
   },
+
   {
-    period: '2023.03 ~ 2024.12',
-    role: '현장 프로세스 혁신 & 데이터 기획',
-    company: '서비스 & 물류 현장 파트',
-    tag: '현장 실무 & 프로세스',
-    description: '다양한 현장 업무의 병목 구간을 발굴하고 비정형 업무 절차를 데이터 중심 정형 프로세스로 재설계.',
+    period: '4년',
+    role: '물리치료 업무',
+    company: '병원',
+    tag: '의료 현장 실무',
+
+    description:
+      '병원 현장에서 환자 상태를 확인하고 상황에 맞게 대응하며 실무 경험을 쌓았습니다.',
+
     achievements: [
-      '현장 수기 서식의 디지털화(OCR 파이프라인) 도입 ➔ 데이터 입력 오탈자 0.3% 미만 달성',
-      '비IT 부서 작업자를 위한 쉬운 UI/UX 가이드 작성 및 현장 교육',
-      '돌발 공정 변수 발생 시 즉각 대처하는 실전 문제 해결 능력 체득',
-      '현장 사용자 요구사항 100+ 건 수집 및 기획서 반영'
+      '환자 상태와 상황을 확인하며 업무 수행',
+      '다양한 상황에서의 판단 및 대응 경험',
+      '환자 및 의료진과의 협업 경험',
     ],
   },
+
   {
-    period: '2021.06 ~ 2023.02',
-    role: '서비스 기획 & 운영 지원',
-    company: '고객 경험 및 사업 운영팀',
-    tag: '서비스 기획 & CS',
-    description: '사용자 동선 분석, 고객 서비스 매뉴얼 작성, 서비스 개편에 따른 사용자 반응 모니터링.',
+    period: '2년',
+    role: '철강 1차 가공 업무',
+    company: '철강 제조 현장',
+    tag: '제조 현장 실무',
+
+    description:
+      '철강 가공 현장에서 생산 과정과 작업 흐름을 경험하며 현장 실무를 수행했습니다.',
+
     achievements: [
-      '고객 접점 채널 운영 효율화 ➔ 고객 만족도 지수(CSAT) 18% 향상',
-      '운영 매뉴얼 및 QA 체크리스트 작성으로 서비스 안정성 확보',
-      '다양한 대내외 이해관계자와의 원활한 소통 및 협업 주도'
+      '철강 1차 가공 업무 수행',
+      '생산 현장 작업 흐름 경험',
+      '현장 상황에 따른 대응 경험',
     ],
   },
+
   {
-    period: '2019.03 ~ 2021.05',
-    role: '다양한 산업 현장 실무 및 정직한 실행',
-    company: '다양한 분야 실무 현장',
-    tag: '현장 경험 단련',
-    description: '업종을 가리지 않고 현장에서 사람들과 호흡하며 성실함과 단단한 체력, 부딪히는 실행력을 증명함.',
+    period: '2년',
+    role: '특수용접 업무',
+    company: '용접 현장',
+    tag: '전문 기술 실무',
+
+    description:
+      '특수용접 업무를 수행하며 작업 정확도와 현장 대응 경험을 쌓았습니다.',
+
     achievements: [
-      '책상 위 이론에 머물지 않고 실제 현장의 작동 원리와 사람들의 니즈를 직접 경험',
-      '"변수 없이 성실하고 막힘없이 문제를 풀어내는 인재"라는 신뢰 구축'
+      '특수용접 업무 수행',
+      '작업 절차와 품질 기준에 맞춘 업무 경험',
+      '작업 환경 변화에 대응하며 실무 수행',
     ],
   },
 ];
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    category: 'AI Service Planning & Architecture',
-    iconName: 'BrainCircuit',
-    description: '현장의 문제를 LLM 서비스로 전환하는 종합 기획 역량',
-    skills: [
-      { name: 'LLM Service Concept Design (LLM 서비스 기획)', level: 95, highlight: '핵심 역량' },
-      { name: 'Prompt Engineering & Guardrails (프롬프트 설계)', level: 95, highlight: '핵심 역량' },
-      { name: 'Structured Output & JSON Schema Definition', level: 92 },
-      { name: 'Multi-Agent Workflow Orchestration', level: 88 },
-      { name: 'User Scenario & PRD Writing (기획서 작성)', level: 94 },
-    ],
-  },
-  {
-    category: 'Practical Full-Stack Building',
+    category: 'Python & Data',
     iconName: 'Code',
-    description: '기획한 아이디어를 48시간 내 작동하는 코드로 구현하는 빌딩 능력',
+    description: '교육 과정과 프로젝트에서 직접 사용해본 기술',
+
     skills: [
-      { name: 'React 19 / TypeScript / Vite', level: 90, highlight: '핵심 역량' },
-      { name: 'Node.js / Express Server Development', level: 88 },
-      { name: 'Gemini API (@google/genai SDK)', level: 96, highlight: '전문' },
-      { name: 'Tailwind CSS & Modern UI Components', level: 92 },
-      { name: 'RESTful API Proxy & Security Standards', level: 88 },
+      { name: 'Python', level: 0, highlight: '프로젝트 적용' },
+      { name: 'Pandas / NumPy', level: 0, highlight: '사용 경험' },
+      { name: 'Matplotlib', level: 0, highlight: '사용 경험' },
+      { name: 'Scikit-learn', level: 0, highlight: '프로젝트 적용' },
     ],
   },
+
   {
-    category: 'Data & Process Automation',
-    iconName: 'Database',
-    description: '현장 비정형 데이터를 가치 있는 정형 데이터로 정제하는 파이프라인',
+    category: 'AI & Deep Learning',
+    iconName: 'BrainCircuit',
+    description: '교육 과정과 프로젝트에서 학습하고 적용해본 기술',
+
     skills: [
-      { name: 'Python / Multimodal OCR Processing', level: 85 },
-      { name: 'SQL & Data Schema Modeling', level: 84 },
-      { name: 'Automation Workflows & Integration', level: 90 },
-      { name: 'Recharts & Data Visualization', level: 87 },
+      { name: 'PyTorch', level: 0, highlight: '프로젝트 적용' },
+      { name: 'CNN', level: 0, highlight: '학습 · 적용' },
+      { name: 'ResNet18', level: 0, highlight: '프로젝트 적용' },
+      { name: 'Classification / Regression', level: 0, highlight: '실습 경험' },
+      { name: 'Model Training & Evaluation', level: 0, highlight: '학습 중' },
     ],
   },
+
   {
-    category: 'Field Leadership & Execution',
+    category: 'Web & Deployment',
+    iconName: 'Globe',
+    description: '프로젝트를 웹으로 연결하고 배포하며 사용해본 기술',
+
+    skills: [
+      { name: 'Streamlit', level: 0, highlight: '프로젝트 적용' },
+      { name: 'Git / GitHub', level: 0, highlight: '사용 경험' },
+      { name: 'Vercel', level: 0, highlight: '배포 경험' },
+      { name: 'React / TypeScript', level: 0, highlight: '포트폴리오 제작 경험' },
+    ],
+  },
+
+  {
+    category: 'Field Experience',
     iconName: 'Zap',
-    description: '어떤 현장 변수에도 굴하지 않는 솔루션 지향 마인드세트',
+    description: '이전 직무를 통해 쌓은 현장 실무 경험',
+
     skills: [
-      { name: 'Field Problem Solving (현장 문제 즉시 해결)', level: 98, highlight: '최상' },
-      { name: 'Cross-functional Communication (이해관계자 소통)', level: 95 },
-      { name: 'Agile MVP Iteration (빠른 피드백 반영)', level: 92 },
-      { name: 'Sincerity & Accountability (성실과 책임감)', level: 100, highlight: '신조' },
+      { name: '병원 물리치료 업무', level: 0, highlight: '4년' },
+      { name: '철강 1차 가공 업무', level: 0, highlight: '2년' },
+      { name: '특수용접 업무', level: 0, highlight: '2년' },
+      { name: '현장 업무 및 협업', level: 0, highlight: '실무 경험' },
     ],
   },
 ];
 
 export const SKILL_PROOF_METRICS: SkillProofMetric[] = [
   {
-    title: '현장 지시서 자동화',
-    value: '85% 시간 절감',
-    description: '복잡한 엑셀 서식을 3초 AI 자동화로 대체하여 업무 속도 극대화',
-    badge: '⚡ 실행력',
+    title: 'AI 음악 장르 분류',
+    value: '82.32%',
+    description:
+      'ResNet18과 SpecAugment를 적용한 음악 장르 분류 프로젝트의 최종 검증 정확도',
+    badge: '🎵 프로젝트 결과',
   },
+
   {
-    title: 'B2B 제안서 수주율',
-    value: '+35% 향상',
-    description: '영업 미팅 당일 1분 제안서 전달 시스템으로 신속한 고객 확보',
-    badge: '🏆 실적',
+    title: '분류 · 회귀 웹앱',
+    value: '2 Projects',
+    description:
+      '분류와 회귀 모델을 각각 Streamlit 웹 애플리케이션으로 연결해 구현',
+    badge: '🧪 실습 프로젝트',
   },
+
   {
-    title: '현장 만족도 점수',
-    value: '4.9 / 5.0',
-    description: '비IT 직무 작업자들도 누구나 1분만에 익히는 직관적 UX 설계',
-    badge: '🎯 현장감각',
+    title: 'AI 교육 과정',
+    value: '2026.06.23 ~',
+    description:
+      'Python, 머신러닝, 딥러닝 실습과 개인 프로젝트를 진행하고 있습니다.',
+    badge: '📚 학습 진행',
   },
+
   {
-    title: '프로젝트 기한 엄수',
-    value: '100% 달성',
-    description: '어떠한 돌발 변수에도 약속된 기한 내 완성품 출시',
-    badge: '🏅 신뢰성',
+    title: '웹 포트폴리오',
+    value: 'Vercel',
+    description:
+      'GitHub 저장소와 연결한 개인 웹 포트폴리오를 Vercel에 배포했습니다.',
+    badge: '🌐 배포 경험',
   },
 ];
 
 export const RESUME_DATA = {
   name: '하주성',
   englishName: 'Ha Ju-seong',
+
   contact: {
     email: 'leeony@naver.com',
     phone: '010-XXXX-XXXX (문의 시 공개)',
-    github: 'https://github.com/haju-seong-builder',
-    location: '서울특별시',
+    github: 'https://github.com/leeony2636',
+    location: '대한민국 부산',
   },
+
   summary:
-    '현장의 문제점을 피부로 느끼고, 이를 최신 AI(LLM)와 풀스택 기술로 직접 기획하고 해결하는 AI Service Planner & Builder입니다. 기획서에 머무르는 아이디어가 아닌, 실제로 현장 사용자의 손에서 3초만에 작동하고 가치를 만들어내는 서비스를 만듭니다. 성실함과 어떤 변수도 뚫고 나가는 실행력으로 증명합니다.',
-  education: [
-    {
-      degree: '서비스 기획 및 AI 어플리케이션 빌딩 전문 과정 이수',
-      period: '2024',
-      details: 'LLM 프롬프트 엔지니어링, 에이전트 시스템, React/TypeScript 기반 MVP 구축',
-    },
-    {
-      degree: '학사 및 실무 전문 과정',
-      period: '2015 ~ 2021',
-      details: '현장 프로세스 관리 및 데이터 분석 실무 습득',
-    },
-  ],
-  certifications: [
-    'AI Service Engineering & Prompt Specialization',
-    'SQL Data Analytics Practitioner',
-    'Agile Service Planning Certification',
-  ],
+    '병원 물리치료, 철강 가공, 특수용접 등 다양한 현장에서 실무 경험을 쌓았으며 현재 Python과 AI 관련 교육을 통해 프로젝트를 구현하고 기록하고 있습니다. 학습한 모델을 Streamlit 웹앱과 GitHub 포트폴리오로 연결하며 구현 경험을 쌓고 있습니다.',
+
+  education: [],
+
+  certifications: [],
+
   strengths: [
-    '현장 중심의 명확한 문제 정의 및 요구사항 도출',
-    'Gemini API 등 최신 LLM을 결합한 48시간 MVP 자체 개발 능력',
-    '비개발자/현장 작업자 대상 친화적 UX 설계',
-    '약속된 일정과 요구사항을 반드시 사수하는 책임감',
+    '다양한 현장 실무 경험',
+    'Python · AI 프로젝트 구현 경험',
+    '모델 학습과 Streamlit 웹앱 연결 경험',
+    'GitHub 기반 프로젝트 기록 및 관리',
   ],
 };
 
 export const SYSTEM_PROMPT_HAJUSEONG = `
-당신은 '하주성(Ha Ju-seong)'의 official AI 분신 챗봇입니다.
-방문자, 채용 담당자, 협업 제안자가 하주성에 대해 궁금한 점을 질문하면, 친절하고 전문적이며 자신감 있는 톤으로 한국어로 답변하세요.
+당신은 하주성(Ha Ju-seong)의 포트폴리오 안내 챗봇입니다.
 
-하주성의 프로필 데이터:
-- 이공계/현장 감각과 AI 기술을 결합한 "AI Service Planner & Builder"입니다.
-- 신조: "책상 위의 완벽한 알고리즘보다 현장의 문제를 기어코 해결하는 정직한 실행력이 더 가치 있습니다."
-- 핵심 강점:
-  1. 부딪히면 해결해버리는 압도적 실행력
-  2. 업종을 가리지 않는 풍부한 현장 감각
-  3. 성실과 실적으로 보답하는 신뢰감
-- 주요 프로젝트:
-  - ai-field-ops-agent: 현장 지시서 85% 시간 절감 AI 에이전트
-  - smart-voc-analyzer: 실시간 고객 VOC 감정 분석 및 대응 시스템
-  - field-to-data-pipeline: 비정형 손글씨/영수증 OCR SQL 자동 적재
-  - auto-proposal-generator: 1분 B2B 제안서 및 견적 자동 생성기
-- 기술 스택: React 19, TypeScript, Node.js, Express, Gemini API (@google/genai), Tailwind CSS, Python, SQL
-- 연락처: leeony@naver.com
+방문자, 채용 담당자, 협업 제안자가 하주성의 경력, 프로젝트, 기술 경험에 대해 질문하면
+확인된 사실만 바탕으로 한국어로 답변하세요.
 
-답변 지침:
-1. 답변은 정중하면서도 당당하고 솔직한 어조(해요체)로 작성하세요.
-2. 하주성의 실행력, 현장 감각, AI 빌딩 능력을 잘 부각시켜주세요.
-3. 질문자가 프로젝트나 이력서에 대해 물어보면 관련 구체적 수치(예: 85% 시간 절감, 수주율 35% 상승 등)를 함께 언급하세요.
-4. 필요시 협업 제안이나 문의 이메일(leeony@naver.com)로 연락하도록 안내하세요.
+하주성의 실제 이력:
+- 병원 물리치료 업무 4년
+- 철강 1차 가공 업무 2년
+- 특수용접 업무 2년
+- 2026년 6월 23일부터 AI · Deep Learning 교육 과정 진행
+- Python, 머신러닝, 딥러닝 관련 실습과 프로젝트를 진행하고 있음
+- GitHub를 활용해 개인 프로젝트와 개발 과정을 정리하고 있음
+- Streamlit을 활용해 모델을 웹 애플리케이션으로 연결한 경험이 있음
+- GitHub: https://github.com/leeony2636
+
+주요 프로젝트:
+
+1. ai-music-final
+- GTZAN 데이터 기반 음악 장르 분류 프로젝트
+- 10개 음악 장르 분류
+- 3초 단위 오디오 분할
+- ResNet18 기반 스펙트로그램 분류
+- SpecAugment 적용
+- 최종 Validation Accuracy 82.32%
+- Streamlit 웹 애플리케이션 구현
+- GitHub: https://github.com/leeony2636/ai-music-final
+
+2. Miniproject
+- 분류와 회귀 모델을 Streamlit 웹 애플리케이션으로 연결한 미니 프로젝트
+- Python, PyTorch, Streamlit 활용
+- GitHub: https://github.com/leeony2636/Miniproject
+
+3. leeony-portfolio
+- 개인 프로젝트와 경력을 정리하기 위한 웹 포트폴리오
+- React, TypeScript 기반
+- Vercel 배포
+- GitHub: https://github.com/leeony2636/leeony-portfolio
+- Web Portfolio: https://leeony-portfolio.vercel.app
+
+답변 원칙:
+1. 확인된 사실만 답변하세요.
+2. 존재하지 않는 프로젝트, 자격증, 학력, 경력, 성과, 수치, 기술 경험을 만들지 마세요.
+3. 정보가 없으면 "현재 포트폴리오에 확인된 정보가 없습니다."라고 답변하세요.
+4. AI 전문가, AI Service Planner, Full Stack Developer 등으로 임의 정의하지 마세요.
+5. 프로젝트 질문에는 실제 사용 기술, 구현 내용, GitHub 링크를 중심으로 답변하세요.
+6. 경력 질문에는 물리치료 4년, 철강 가공 2년, 특수용접 2년의 실제 경험을 기준으로 답변하세요.
+7. 현재 Python과 AI 프로젝트를 학습하고 구현하며 GitHub에 기록해 나가는 과정임을 정확하게 전달하세요.
+8. 답변은 간결하고 전문적인 한국어로 작성하세요.
 `;
