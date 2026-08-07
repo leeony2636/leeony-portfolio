@@ -62,7 +62,35 @@ export const PROJECTS: Project[] = [
     fieldProblemSolved:
       '음원 파일을 업로드하면 특징 추출과 모델 추론 과정을 거쳐 음악 장르와 확률을 웹에서 확인할 수 있도록 구현했습니다.',
     featured: true
-  }
+  },
+      {
+    id: 'ml-mini-projects',
+    title: 'ML Mini Projects',
+    subTitle: '분류 · 회귀 모델 Streamlit 웹앱',
+    description: 'PyTorch로 구현한 분류·회귀 모델을 Streamlit 웹 애플리케이션으로 연결한 미니 프로젝트 모음',
+    fullDescription:
+      '분류와 회귀 문제를 각각 모델링하고 학습된 모델을 Streamlit 웹앱과 연결하여 실제 입력값에 대한 예측 결과를 확인할 수 있도록 구현한 미니 프로젝트입니다.',
+    category: 'Learning & Practice',
+    techStack: ['Python', 'PyTorch', 'Streamlit'],
+    stars: 0,
+    forks: 0,
+    githubUrl: 'https://github.com/leeony2636/Miniproject',
+    metrics: [
+      { label: '구성', value: 'Classification + Regression' }
+    ],
+    keyFeatures: [
+      'PyTorch 기반 분류 모델 구현',
+      'PyTorch 기반 회귀 모델 구현',
+      '학습된 모델 파일 저장 및 불러오기',
+      'Streamlit 웹 인터페이스 연결',
+      '사용자 입력에 따른 예측 결과 출력'
+    ],
+    architectureSummary:
+      'User Input → Streamlit → Trained PyTorch Model → Prediction → Result Display',
+    fieldProblemSolved:
+      '모델 학습 결과를 코드 내부에서만 확인하지 않고 웹 인터페이스와 연결하여 직접 입력하고 예측 결과를 확인할 수 있도록 구현했습니다.',
+    featured: false
+  },
 ];
 
 export const TIMELINE: TimelineItem[] = [
