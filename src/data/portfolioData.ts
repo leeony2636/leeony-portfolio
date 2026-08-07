@@ -57,7 +57,7 @@ export const PROJECTS: Project[] = [
     forks: 0,
 
     githubUrl: 'https://github.com/leeony2636/ai-music-final',
-    liveUrl: '',
+    liveUrl: 'https://ai-music-final-n2pc859rmhy5egumjwztsz.streamlit.app/',
 
     metrics: [
       { label: 'Validation Accuracy', value: '82.32%' },
@@ -104,7 +104,7 @@ export const PROJECTS: Project[] = [
     forks: 0,
 
     githubUrl: 'https://github.com/leeony2636/Miniproject',
-
+    liveUrl: 'https://miniproject-6m88p7gplkcxxrdbxxhvsq.streamlit.app',
     metrics: [
       { label: '구성', value: 'Classification + Regression' },
     ],

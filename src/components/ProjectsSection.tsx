@@ -158,10 +158,11 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 text-gray-400 hover:text-white hover:bg-white/10 rounded-lg transition"
+                      className="px-3.5 py-2 text-xs bg-blue-600/20 hover:bg-blue-600 text-blue-300 hover:text-white rounded-lg font-medium transition flex items-center gap-1"
                       title="Live Demo"
                     >
-                      <ArrowUpRight className="w-4 h-4" />
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                      웹 실행
                     </a>
                   )}
 
