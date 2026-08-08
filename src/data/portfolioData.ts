@@ -57,7 +57,7 @@ export const PROJECTS: Project[] = [
     forks: 0,
 
     githubUrl: 'https://github.com/leeony2636/ai-music-final',
-    liveUrl: 'https://ai-music-final-n2pc859rmhy5egumjwztsz.streamlit.app/',
+    liveUrl: 'https://ai-music-final-mj2gmrph3khrrncd5dbsgb.streamlit.app/',
 
     metrics: [
       { label: 'Validation Accuracy', value: '82.32%' },
