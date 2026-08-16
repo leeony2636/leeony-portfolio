@@ -46,7 +46,21 @@ app.post('/api/chat', async (req, res) => {
     const ai = getGenAI();
     if (!ai) {
       // Friendly fallback if GEMINI_API_KEY is not set yet
-      const fallbackText = `안녕하세요! 하주성 AI 분신입니다. ⚡\n\n현재 백엔드 Gemini API 키 설정 대기 상태입니다. 하주성에 대한 주요 안내:\n\n• **이름**: 하주성 (AI Service Planner & Builder)\n• **핵심 신조**: "책상 위의 완벽한 알고리즘보다 현장의 문제를 해결하는 정직한 실행력"\n• **주요 강점**: 부딪히면 해결하는 압도적 실행력, 다양한 현장 경험, 85% 시간 절감 프로젝트 성과\n• **이메일 문의**: leeony@naver.com\n\n질문해 주셔서 감사합니다! 상단 메뉴 및 프로젝트 카드를 통해 더 많은 성과를 확인하실 수 있습니다.`;
+      const fallbackText = `안녕하세요! 하주성 AI 포트폴리오 안내 챗봇입니다. ⚡
+
+현재 백엔드 Gemini API 키 설정 대기 상태입니다.
+
+하주성에 대한 주요 안내:
+
+• 이름: 하주성
+• 현재 방향: Python · AI 프로젝트 구현 및 기록
+• 주요 경험: 병원 물리치료 4년, 철강 가공 2년, 특수용접 2년
+• AI 프로젝트: 음악 장르 분류, 분류·회귀 웹앱, ChefEar 팀 프로젝트
+• 현재 학습: Python, PyTorch, Deep Learning, STT Fine-tuning
+• 협업 경험: Git Branch · Pull Request · Review
+• 이메일 문의: leeony@naver.com
+
+상단 메뉴와 프로젝트 카드를 통해 프로젝트와 기술 경험을 확인하실 수 있습니다.`;
       res.json({ text: fallbackText });
       return;
     }

@@ -23,7 +23,7 @@ export const ContactChatSection: React.FC<ContactChatSectionProps> = ({ onOpenRe
     {
       id: 'welcome',
       sender: 'assistant',
-      text: '안녕하세요! 하주성의 공식 AI 분신 챗봇입니다. ⚡\n\n하주성 님의 핵심 강점, 주요 프로젝트 성과, 현장 빌딩 신조, 협업 가능 여부 등 궁금하신 점을 편하게 질문해 보세요!',
+      text: '안녕하세요! 하주성의 AI 포트폴리오 안내 챗봇입니다. ⚡\n\n프로젝트, 기술 경험, 현장 경력, 협업 경험 등에 대해 궁금한 점을 편하게 질문해 주세요.',
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     },
   ]);
@@ -108,11 +108,11 @@ export const ContactChatSection: React.FC<ContactChatSectionProps> = ({ onOpenRe
   };
 
   const samplePrompts = [
-    '하주성 님의 핵심 강점은 무엇인가요?',
-    '85% 시간 절감 프로젝트 알려주세요',
-    '사용하는 핵심 기술 스택이 무엇인가요?',
-    '이력서나 연락처 보는 방법은?',
-  ];
+  '하주성의 주요 프로젝트를 알려주세요',
+  'ChefEar에서 어떤 역할을 맡았나요?',
+  '사용할 수 있는 주요 기술 스택은 무엇인가요?',
+  '현장 경력과 AI 프로젝트 경험을 설명해주세요',
+];
 
   return (
     <section className="mb-12">

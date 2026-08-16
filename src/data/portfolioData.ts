@@ -125,6 +125,56 @@ export const PROJECTS: Project[] = [
 
     featured: false,
   },
+  {
+    id: 'chefear',
+    title: 'ChefEar',
+    subTitle: 'AI 음성 레시피 어시스턴트 팀 프로젝트',
+    description:
+      '음성으로 레시피를 조회하고 조리 단계를 진행할 수 있도록 STT·TTS·오케스트레이션을 결합하는 팀 프로젝트',
+
+    fullDescription:
+      'ChefEar는 요리 중 화면 조작을 최소화하고 음성으로 레시피를 진행할 수 있도록 설계한 팀 프로젝트입니다. 저는 STT 파트를 담당하여 Whisper Small과 wav2vec2를 비교하고, Whisper Large-v3-turbo QLoRA 파인튜닝과 WER·CER 평가를 수행해 최종 STT 모델을 선정했습니다.',
+
+    category: 'AI / Deep Learning',
+
+    techStack: [
+      'Python',
+      'PyTorch',
+      'Whisper',
+      'wav2vec2',
+      'QLoRA',
+      'Streamlit',
+    ],
+
+    stars: 0,
+    forks: 0,
+
+    githubUrl: 'https://github.com/aihuman-7th/proj1-a',
+    liveUrl: '',
+
+    metrics: [
+      { label: '담당', value: 'STT Fine-tuning' },
+      { label: '비교 모델', value: '3 Models' },
+      { label: '평가', value: 'WER / CER' },
+    ],
+
+    keyFeatures: [
+      'Whisper Small 기반 초기 STT 실험',
+      'wav2vec2 비교 실험',
+      'Whisper Large-v3-turbo QLoRA 파인튜닝',
+      'Fixed100 / New500 기준 WER·CER 평가',
+      '최종 STT 모델 선정',
+      'Git Branch / Pull Request / Review 기반 팀 협업',
+    ],
+
+    architectureSummary:
+      'Voice Input → Whisper STT → Intent / Recipe Processing → TTS → Voice Response',
+
+    fieldProblemSolved:
+      '요리 중 손을 사용하기 어려운 상황에서 음성으로 레시피 진행을 이어갈 수 있도록 STT 인식 성능과 서비스 통합 가능성을 검증하고 있습니다.',
+
+    featured: true,
+  },
 ];
 
 export const TIMELINE: TimelineItem[] = [
@@ -142,6 +192,8 @@ export const TIMELINE: TimelineItem[] = [
       'PyTorch 기반 분류·회귀 모델 구현',
       'Streamlit 기반 예측 웹 애플리케이션 제작',
       'ResNet18 기반 음악 장르 분류 프로젝트 구현',
+      'ChefEar 팀 프로젝트에서 STT 파인튜닝 및 모델 비교·평가 담당',
+      'Git Branch / Pull Request / Review 기반 협업 경험',
       'GitHub를 활용한 프로젝트 기록',
       'Vercel을 활용한 웹 포트폴리오 배포',
     ],
@@ -219,8 +271,9 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       { name: 'PyTorch', level: 0, highlight: '프로젝트 적용' },
       { name: 'CNN', level: 0, highlight: '학습 · 적용' },
       { name: 'ResNet18', level: 0, highlight: '프로젝트 적용' },
-      { name: 'Classification / Regression', level: 0, highlight: '실습 경험' },
-      { name: 'Model Training & Evaluation', level: 0, highlight: '학습 중' },
+      { name: 'Whisper STT', level: 0, highlight: '팀 프로젝트 적용' },
+      { name: 'QLoRA Fine-tuning', level: 0, highlight: '실험 경험' },
+      { name: 'WER / CER Evaluation', level: 0, highlight: '모델 평가' },
     ],
   },
 
@@ -231,7 +284,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 
     skills: [
       { name: 'Streamlit', level: 0, highlight: '프로젝트 적용' },
-      { name: 'Git / GitHub', level: 0, highlight: '사용 경험' },
+      { name: 'Git / GitHub', level: 0, highlight: 'Branch · PR · Review' },
       { name: 'Vercel', level: 0, highlight: '배포 경험' },
       { name: 'React / TypeScript', level: 0, highlight: '포트폴리오 제작 경험' },
     ],
@@ -259,7 +312,15 @@ export const SKILL_PROOF_METRICS: SkillProofMetric[] = [
       'ResNet18과 SpecAugment를 적용한 음악 장르 분류 프로젝트의 최종 검증 정확도',
     badge: '🎵 프로젝트 결과',
   },
-
+  
+  {
+    title: 'ChefEar 팀 프로젝트',
+    value: 'STT',
+    description:
+      'Whisper Small과 wav2vec2를 비교하고 Whisper Large-v3-turbo QLoRA 파인튜닝과 WER·CER 평가를 수행했습니다.',
+    badge: '👨‍🍳 팀 프로젝트',
+  },
+  
   {
     title: '분류 · 회귀 웹앱',
     value: '2 Projects',
@@ -306,16 +367,17 @@ export const RESUME_DATA = {
   strengths: [
     '다양한 현장 실무 경험',
     'Python · AI 프로젝트 구현 경험',
-    '모델 학습과 Streamlit 웹앱 연결 경험',
-    'GitHub 기반 프로젝트 기록 및 관리',
+    '모델 학습 및 성능 비교·평가 경험',
+    'Streamlit 기반 웹앱 구현 경험',
+    'GitHub Branch · Pull Request · Review 기반 협업 경험',
   ],
 };
 
 export const SYSTEM_PROMPT_HAJUSEONG = `
-당신은 하주성(Ha Ju-seong)의 포트폴리오 안내 챗봇입니다.
+당신은 하주성(Ha Ju-seong)의 개인 포트폴리오 안내 챗봇입니다.
 
 방문자, 채용 담당자, 협업 제안자가 하주성의 경력, 프로젝트, 기술 경험에 대해 질문하면
-확인된 사실만 바탕으로 한국어로 답변하세요.
+아래에 확인된 사실만 바탕으로 한국어로 답변하세요.
 
 하주성의 실제 이력:
 - 병원 물리치료 업무 4년
@@ -324,40 +386,80 @@ export const SYSTEM_PROMPT_HAJUSEONG = `
 - 2026년 6월 23일부터 AI · Deep Learning 교육 과정 진행
 - Python, 머신러닝, 딥러닝 관련 실습과 프로젝트를 진행하고 있음
 - GitHub를 활용해 개인 프로젝트와 개발 과정을 정리하고 있음
-- Streamlit을 활용해 모델을 웹 애플리케이션으로 연결한 경험이 있음
+- Streamlit을 활용해 학습한 모델을 웹 애플리케이션으로 연결한 경험이 있음
+- Git Branch, Pull Request, Review 기반 팀 협업 경험이 있음
 - GitHub: https://github.com/leeony2636
 
 주요 프로젝트:
 
 1. ai-music-final
+- 개인 프로젝트
 - GTZAN 데이터 기반 음악 장르 분류 프로젝트
 - 10개 음악 장르 분류
 - 3초 단위 오디오 분할
-- ResNet18 기반 스펙트로그램 분류
+- ResNet18 기반 Mel Spectrogram 분류
 - SpecAugment 적용
-- 최종 Validation Accuracy 82.32%
-- Streamlit 웹 애플리케이션 구현
+- Validation Accuracy 76.47%에서 82.32%로 개선
+- Streamlit 웹 애플리케이션 구현 및 배포
 - GitHub: https://github.com/leeony2636/ai-music-final
+- Live Demo: https://ai-music-final-mj2gmrph3khrrncd5dbsgb.streamlit.app/
 
 2. Miniproject
-- 분류와 회귀 모델을 Streamlit 웹 애플리케이션으로 연결한 미니 프로젝트
+- 개인 학습 프로젝트
+- 분류와 회귀 모델을 Streamlit 웹 애플리케이션으로 연결
 - Python, PyTorch, Streamlit 활용
+- 사용자 입력값에 따른 모델 예측 결과 출력
 - GitHub: https://github.com/leeony2636/Miniproject
 
-3. leeony-portfolio
+3. ChefEar
+- AI 음성 레시피 어시스턴트 팀 프로젝트
+- 하주성은 STT 파트 담당
+- Whisper Small 기반 초기 STT 실험
+- wav2vec2 비교 실험
+- openai/whisper-large-v3-turbo QLoRA 파인튜닝
+- Fixed100 / New500 기준 WER · CER 평가
+- 모델 비교를 통해 Whisper Large-v3-turbo를 최종 STT 모델로 선정
+- Git Branch / Pull Request / Review 기반 협업
+- 현재 팀 서비스 통합 작업 진행 중
+- GitHub: https://github.com/aihuman-7th/proj1-a
+
+4. leeony-portfolio
 - 개인 프로젝트와 경력을 정리하기 위한 웹 포트폴리오
 - React, TypeScript 기반
+- GitHub 저장소와 Vercel 연결
 - Vercel 배포
 - GitHub: https://github.com/leeony2636/leeony-portfolio
 - Web Portfolio: https://leeony-portfolio.vercel.app
+
+기술 경험:
+- Python
+- Pandas / NumPy
+- Matplotlib
+- Scikit-learn
+- PyTorch
+- CNN
+- ResNet18
+- Streamlit
+- Librosa
+- Whisper STT
+- wav2vec2 비교 실험
+- QLoRA Fine-tuning
+- WER / CER 기반 STT 평가
+- Git / GitHub
+- Branch / Pull Request / Review
+- Vercel
+- React / TypeScript 포트폴리오 제작 경험
 
 답변 원칙:
 1. 확인된 사실만 답변하세요.
 2. 존재하지 않는 프로젝트, 자격증, 학력, 경력, 성과, 수치, 기술 경험을 만들지 마세요.
 3. 정보가 없으면 "현재 포트폴리오에 확인된 정보가 없습니다."라고 답변하세요.
-4. AI 전문가, AI Service Planner, Full Stack Developer 등으로 임의 정의하지 마세요.
-5. 프로젝트 질문에는 실제 사용 기술, 구현 내용, GitHub 링크를 중심으로 답변하세요.
-6. 경력 질문에는 물리치료 4년, 철강 가공 2년, 특수용접 2년의 실제 경험을 기준으로 답변하세요.
-7. 현재 Python과 AI 프로젝트를 학습하고 구현하며 GitHub에 기록해 나가는 과정임을 정확하게 전달하세요.
-8. 답변은 간결하고 전문적인 한국어로 작성하세요.
+4. 하주성을 AI 전문가, AI Service Planner, Full Stack Developer 등으로 임의 정의하지 마세요.
+5. 현재 Python과 AI 프로젝트를 학습하고 직접 구현하며 경험을 쌓고 있는 과정임을 정확하게 표현하세요.
+6. 프로젝트 질문에는 실제 사용 기술, 구현 내용, 역할, GitHub 링크를 중심으로 답변하세요.
+7. ChefEar는 팀 프로젝트이며 하주성은 STT 파트를 담당했다고 정확하게 표현하세요.
+8. ai-music-final과 Miniproject는 하주성의 개인 프로젝트로 구분하세요.
+9. 경력 질문에는 물리치료 4년, 철강 가공 2년, 특수용접 2년의 실제 경험을 기준으로 답변하세요.
+10. 근거가 없는 생산성 향상률, 수주율, 개발 기간 등의 수치를 만들지 마세요.
+11. 답변은 간결하고 전문적인 한국어로 작성하세요.
 `;
