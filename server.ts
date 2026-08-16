@@ -1,129 +1,165 @@
 import express from 'express';
 import path from 'path';
-import { fileURLToPath } from 'url';
-import { GoogleGenAI } from '@google/genai';
-import { SYSTEM_PROMPT_HAJUSEONG } from './src/data/portfolioData.js';
+import { SYSTEM_PROMPT_HAJUSEONG } from './src/data/portfolioData';
 
 const app = express();
 const PORT = 3000;
 
 app.use(express.json());
 
-// Initialize Gemini AI client lazily
-let aiClient: GoogleGenAI | null = null;
-function getGenAI(): GoogleGenAI | null {
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey || apiKey === 'MY_GEMINI_API_KEY') {
-    return null;
-  }
-  if (!aiClient) {
-    aiClient = new GoogleGenAI({
-      apiKey,
-      httpOptions: {
-        headers: {
-          'User-Agent': 'aistudio-build',
-        },
-      },
-    });
-  }
-  return aiClient;
-}
+const OPENROUTER_URL = 'https://openrouter.ai/api/v1/chat/completions';
 
-// API Health Check
+// 정확한 모델 ID는 OpenRouter 모델 페이지에서 최종 확인 후 바꾸면 됩니다.
+const OPENROUTER_MODEL = 'openai/gpt-oss-20b:free';
+
+// Health Check
 app.get('/api/health', (_req, res) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+  res.json({
+    status: 'ok',
+    timestamp: new Date().toISOString(),
+  });
 });
 
-// AI Chatbot API Endpoint
+// Chat API
 app.post('/api/chat', async (req, res) => {
   try {
     const { message, history } = req.body;
+
     if (!message || typeof message !== 'string') {
-      res.status(400).json({ error: 'Message string is required.' });
+      res.status(400).json({
+        error: 'Message string is required.',
+      });
       return;
     }
 
-    const ai = getGenAI();
-    if (!ai) {
-      // Friendly fallback if GEMINI_API_KEY is not set yet
+    const apiKey = process.env.OPENROUTER_API_KEY;
+
+    // API 키가 아직 설정되지 않은 경우
+    if (!apiKey) {
       const fallbackText = `안녕하세요! 하주성 AI 포트폴리오 안내 챗봇입니다. ⚡
 
-현재 백엔드 Gemini API 키 설정 대기 상태입니다.
+현재 AI 챗봇 API 설정 대기 상태입니다.
 
-하주성에 대한 주요 안내:
-
-• 이름: 하주성
 • 현재 방향: Python · AI 프로젝트 구현 및 기록
-• 주요 경험: 병원 물리치료 4년, 철강 가공 2년, 특수용접 2년
-• AI 프로젝트: 음악 장르 분류, 분류·회귀 웹앱, ChefEar 팀 프로젝트
-• 현재 학습: Python, PyTorch, Deep Learning, STT Fine-tuning
+• 주요 프로젝트: AI Music Genre Classifier, ML Mini Projects, ChefEar
 • 협업 경험: Git Branch · Pull Request · Review
-• 이메일 문의: leeony@naver.com
+• 이메일 문의: leeony@naver.com`;
 
-상단 메뉴와 프로젝트 카드를 통해 프로젝트와 기술 경험을 확인하실 수 있습니다.`;
-      res.json({ text: fallbackText });
+      res.json({
+        text: fallbackText,
+      });
+
       return;
     }
 
-    // Prepare contents array for chat history
-    const contents: any[] = [];
-    
-    // Convert previous chat history if provided
+    const messages: {
+      role: 'system' | 'user' | 'assistant';
+      content: string;
+    }[] = [
+      {
+        role: 'system',
+        content: SYSTEM_PROMPT_HAJUSEONG,
+      },
+    ];
+
+    // 이전 대화 기록 추가
     if (Array.isArray(history)) {
-      history.forEach((msg: { sender: string; text: string }) => {
-        contents.push({
-          role: msg.sender === 'user' ? 'user' : 'model',
-          parts: [{ text: msg.text }],
-        });
-      });
+      history.forEach(
+        (msg: { sender: string; text: string }) => {
+          messages.push({
+            role: msg.sender === 'user' ? 'user' : 'assistant',
+            content: msg.text,
+          });
+        }
+      );
     }
 
-    // Append current user message
-    contents.push({
+    // 현재 사용자 질문 추가
+    messages.push({
       role: 'user',
-      parts: [{ text: message }],
+      content: message,
     });
 
-    const response = await ai.models.generateContent({
-      model: 'gemini-3.6-flash',
-      contents: contents,
-      config: {
-        systemInstruction: SYSTEM_PROMPT_HAJUSEONG,
-        temperature: 0.7,
+    const response = await fetch(OPENROUTER_URL, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+        'HTTP-Referer': 'https://leeony-portfolio.vercel.app',
+        'X-Title': 'Ha Ju-seong Portfolio',
       },
+      body: JSON.stringify({
+        model: OPENROUTER_MODEL,
+        messages,
+        temperature: 0.5,
+        max_tokens: 500,
+      }),
     });
 
-    const replyText = response.text || '죄송합니다, 답변을 생성하지 못했습니다. 다시 시도해 주세요.';
-    res.json({ text: replyText });
+    if (!response.ok) {
+      const errorText = await response.text();
+
+      console.error(
+        'OpenRouter API Error:',
+        response.status,
+        errorText
+      );
+
+      throw new Error(
+        `OpenRouter request failed: ${response.status}`
+      );
+    }
+
+    const data = await response.json();
+
+    const replyText =
+      data?.choices?.[0]?.message?.content ||
+      '죄송합니다. 답변을 생성하지 못했습니다. 다시 시도해 주세요.';
+
+    res.json({
+      text: replyText,
+    });
   } catch (error: any) {
     console.error('Error in /api/chat:', error);
+
     res.status(500).json({
       error: 'Failed to process AI chat request.',
       details: error?.message || String(error),
-      fallbackText: '안녕하세요! AI 분신 응답 중 일시적인 오류가 발생했습니다. 하주성에 대해 궁금하신 사항은 이메일(leeony@naver.com)로 문의해주시면 감사하겠습니다.',
+      fallbackText:
+        'AI 포트폴리오 챗봇 응답 중 일시적인 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.',
     });
   }
 });
 
-// Express & Vite setup
+// Dev / Production Server
 async function startServer() {
   if (process.env.NODE_ENV !== 'production') {
     const { createServer: createViteServer } = await import('vite');
+
     const vite = await createViteServer({
-      server: { middlewareMode: true },
+      server: {
+        middlewareMode: true,
+      },
       appType: 'spa',
     });
+
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), 'dist');
+
     app.use(express.static(distPath));
+
     app.get('*', (_req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
+      res.sendFile(
+        path.join(distPath, 'index.html')
+      );
     });
   }
 
   app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server running on http://0.0.0.0:${PORT}`);
+    console.log(
+      `Server running on http://0.0.0.0:${PORT}`
+    );
   });
 }
 
