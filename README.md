@@ -124,6 +124,46 @@ https://github.com/leeony2636/Miniproject
 
 ---
 
+## 🤖 Portfolio AI Chatbot
+
+포트폴리오 방문자가 프로젝트, 기술 경험, 현장 경력, 협업 경험 등을 질문할 수 있도록  
+**OpenRouter 기반 AI 챗봇**을 연결했습니다.
+
+현재 챗봇은 포트폴리오 정보를 System Prompt로 전달받아  
+질문에 맞는 답변을 생성합니다.
+
+### Architecture
+
+```text
+User Question
+      ↓
+React Chat UI
+      ↓
+/api/chat
+      ↓
+Vercel Serverless Function
+      ↓
+OpenRouter API
+      ↓
+openai/gpt-oss-20b:free
+      ↓
+Portfolio Context 기반 답변
+```
+
+### Implementation
+
+- OpenRouter API 연동
+- `openai/gpt-oss-20b:free` 모델 사용
+- Vercel `/api/chat` Serverless Function 구현
+- System Prompt 기반 포트폴리오 정보 제공
+- 이전 대화 기록을 포함한 멀티턴 질의응답 구조
+- API Key를 Vercel Environment Variables로 관리
+- 실제 Vercel Production 환경에서 챗봇 동작 확인
+
+> 실제 OpenRouter API Key는 GitHub에 업로드하지 않습니다.
+
+---
+
 ## 📚 Paper Research Archive
 
 AI / Deep Learning 관련 논문을 읽고  
@@ -155,7 +195,11 @@ https://github.com/leeony2636/read_and_chewed
 
 ### Web / Deployment
 
-`React` `TypeScript` `Streamlit` `Vercel`
+`React` `TypeScript` `Streamlit` `Vercel` `Vercel Serverless Functions`
+
+### AI Integration
+
+`OpenRouter` `GPT-OSS 20B` `REST API` `System Prompt`
 
 ### Development
 
@@ -191,3 +235,93 @@ Pull Request
 Review
   ↓
 Merge
+```
+
+---
+
+## Portfolio Structure
+
+```text
+leeony-portfolio/
+├─ api/
+│  └─ chat.ts
+│
+├─ src/
+│  ├─ components/
+│  ├─ data/
+│  │  └─ portfolioData.ts
+│  ├─ App.tsx
+│  ├─ main.tsx
+│  ├─ index.css
+│  └─ types.ts
+│
+├─ .env.example
+├─ server.ts
+├─ package.json
+├─ vite.config.ts
+└─ README.md
+```
+
+---
+
+## Run Locally
+
+### Install
+
+```bash
+npm install
+```
+
+### Environment
+
+프로젝트 루트에 `.env.local` 파일을 만들고 OpenRouter API Key를 설정합니다.
+
+```env
+OPENROUTER_API_KEY="YOUR_OPENROUTER_API_KEY"
+```
+
+> 실제 API Key는 GitHub에 업로드하지 않습니다.
+
+### Run
+
+```bash
+npm run dev
+```
+
+---
+
+## Deployment
+
+GitHub `main` 브랜치와 Vercel을 연결하여 자동 배포하고 있습니다.
+
+```text
+GitHub main
+    ↓
+Vercel Build
+    ↓
+Production Deployment
+```
+
+**Live Portfolio**
+
+https://leeony-portfolio.vercel.app
+
+---
+
+## Current Status
+
+- ✅ AI Music Genre Classifier 구현 및 배포
+- ✅ ML Mini Projects 구현
+- ✅ React / TypeScript 기반 개인 포트폴리오 구축
+- ✅ GitHub ↔ Vercel 자동 배포 연결
+- ✅ OpenRouter 기반 AI 포트폴리오 챗봇 연동
+- ✅ Vercel Serverless Function `/api/chat` 구현
+- 🚧 ChefEar 팀 프로젝트 진행 중
+- 🚧 STT / TTS 서비스 통합 진행 중
+
+---
+
+## Contact
+
+- GitHub: https://github.com/leeony2636
+- Email: leeony@naver.com
