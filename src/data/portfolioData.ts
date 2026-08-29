@@ -129,11 +129,12 @@ export const PROJECTS: Project[] = [
     id: 'chefear',
     title: 'ChefEar',
     subTitle: 'AI 음성 레시피 어시스턴트 팀 프로젝트',
+
     description:
-      '음성으로 레시피를 조회하고 조리 단계를 진행할 수 있도록 STT·TTS·오케스트레이션을 결합하는 팀 프로젝트',
+      '음성으로 레시피를 조회하고 조리 단계를 진행할 수 있도록 STT·TTS·오케스트레이션을 결합한 팀 프로젝트',
 
     fullDescription:
-      'ChefEar는 요리 중 화면 조작을 최소화하고 음성으로 레시피를 진행할 수 있도록 설계한 팀 프로젝트입니다. 저는 STT 파트를 담당하여 Whisper Small과 wav2vec2를 비교하고, Whisper Large-v3-turbo QLoRA 파인튜닝과 WER·CER 평가를 수행해 최종 STT 모델을 선정했습니다.',
+      'ChefEar는 요리 중 화면 조작을 최소화하고 음성으로 레시피를 진행할 수 있도록 설계한 팀 프로젝트입니다. 저는 STT 파트를 담당하여 Whisper Small과 wav2vec2를 비교하고, Whisper Large-v3-turbo QLoRA 파인튜닝과 WER·CER 평가를 수행해 최종 STT 모델을 선정했습니다. 이후 TTS 음성 입력과 STT 인식 통합 테스트까지 수행했습니다.',
 
     category: 'AI / Deep Learning',
 
@@ -164,14 +165,15 @@ export const PROJECTS: Project[] = [
       'Whisper Large-v3-turbo QLoRA 파인튜닝',
       'Fixed100 / New500 기준 WER·CER 평가',
       '최종 STT 모델 선정',
+      'TTS 음성 → STT 인식 통합 테스트',
       'Git Branch / Pull Request / Review 기반 팀 협업',
     ],
 
     architectureSummary:
-      'Voice Input → Whisper STT → Intent / Recipe Processing → TTS → Voice Response',
+      'Voice Input → Fine-tuned Whisper STT → Intent / Recipe Processing → TTS → Voice Response',
 
     fieldProblemSolved:
-      '요리 중 손을 사용하기 어려운 상황에서 음성으로 레시피 진행을 이어갈 수 있도록 STT 인식 성능과 서비스 통합 가능성을 검증하고 있습니다.',
+      '요리 중 손을 사용하기 어려운 상황에서 음성으로 레시피 진행을 이어갈 수 있도록 STT 인식 성능과 서비스 통합 가능성을 검증했습니다.',
 
     featured: true,
   },
@@ -312,7 +314,7 @@ export const SKILL_PROOF_METRICS: SkillProofMetric[] = [
       'ResNet18과 SpecAugment를 적용한 음악 장르 분류 프로젝트의 최종 검증 정확도',
     badge: '🎵 프로젝트 결과',
   },
-  
+
   {
     title: 'ChefEar 팀 프로젝트',
     value: 'STT',
@@ -320,7 +322,7 @@ export const SKILL_PROOF_METRICS: SkillProofMetric[] = [
       'Whisper Small과 wav2vec2를 비교하고 Whisper Large-v3-turbo QLoRA 파인튜닝과 WER·CER 평가를 수행했습니다.',
     badge: '👨‍🍳 팀 프로젝트',
   },
-  
+
   {
     title: '분류 · 회귀 웹앱',
     value: '2 Projects',
