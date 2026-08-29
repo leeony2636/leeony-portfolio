@@ -2,7 +2,7 @@ const OPENROUTER_URL =
   'https://openrouter.ai/api/v1/chat/completions';
 
 const OPENROUTER_MODEL =
-  'openai/gpt-oss-20b:free';
+  'openrouter/free';
 
 const SYSTEM_PROMPT_HAJUSEONG = `
 당신은 하주성(Ha Ju-seong)의 개인 포트폴리오 안내 챗봇입니다.
