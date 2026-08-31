@@ -129,15 +129,15 @@ export const PROJECTS: Project[] = [
     id: 'chefear',
     title: 'ChefEar',
     subTitle: 'AI 음성 레시피 어시스턴트 팀 프로젝트',
-
+    
     description:
-      '음성으로 레시피를 조회하고 조리 단계를 진행할 수 있도록 STT·TTS·오케스트레이션을 결합한 팀 프로젝트',
-
+      '음성으로 레시피를 조회하고 조리 단계를 진행할 수 있도록 설계한 팀 프로젝트',
+    
     fullDescription:
-      'ChefEar는 요리 중 화면 조작을 최소화하고 음성으로 레시피를 진행할 수 있도록 설계한 팀 프로젝트입니다. 저는 STT 파트를 담당하여 Whisper Small과 wav2vec2를 비교하고, Whisper Large-v3-turbo QLoRA 파인튜닝과 WER·CER 평가를 수행해 최종 STT 모델을 선정했습니다. 이후 TTS 음성 입력과 STT 인식 통합 테스트까지 수행했습니다.',
-
+      'ChefEar는 요리 중 화면 조작을 최소화하고 음성으로 레시피를 진행할 수 있도록 설계한 팀 프로젝트입니다. 저는 STT 파트를 담당하여 Whisper Small, wav2vec2, Whisper Large-v3-turbo를 비교하고, Whisper Large-v3-turbo 기반 QLoRA 파인튜닝과 WER·CER 평가를 수행했습니다. 이후 최종 STT 모델을 선정하고, 팀 GPU 환경에서 CTranslate2 int8 및 faster-whisper 기반 추론 구조를 검증했습니다. TTS 모델 개발은 팀원의 담당 영역이며, TTS 출력 음성을 활용한 STT 재인식 통합 테스트를 진행했습니다.',
+    
     category: 'AI / Deep Learning',
-
+    
     techStack: [
       'Python',
       'PyTorch',
@@ -146,13 +146,13 @@ export const PROJECTS: Project[] = [
       'QLoRA',
       'Streamlit',
     ],
-
+    
     stars: 0,
     forks: 0,
-
-    githubUrl: 'https://github.com/aihuman-7th/proj1-a',
+    
+    githubUrl: 'https://github.com/leeony2636/Chefear',
     liveUrl: '',
-
+    
     metrics: [
       { label: '담당', value: 'STT Fine-tuning' },
       { label: '비교 모델', value: '3 Models' },
@@ -166,7 +166,8 @@ export const PROJECTS: Project[] = [
       'Fixed100 / New500 기준 WER·CER 평가',
       '최종 STT 모델 선정',
       'TTS 음성 → STT 인식 통합 테스트',
-      'Git Branch / Pull Request / Review 기반 팀 협업',
+      'CTranslate2 int8 및 faster-whisper 기반 추론 검증',
+      'Git Branch / Pull Request / Review 기반 협업',
     ],
 
     architectureSummary:
