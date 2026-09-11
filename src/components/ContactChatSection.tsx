@@ -175,6 +175,7 @@ export const ContactChatSection: React.FC<ContactChatSectionProps> = ({
     'ChefEar에서 어떤 역할을 맡았나요?',
     'AI Music Genre Classifier 프로젝트를 설명해주세요',
     '사용할 수 있는 주요 기술 스택은 무엇인가요?',
+    '최근에 추가한 AI 프로젝트는 무엇인가요?',
   ];
 
   return (
